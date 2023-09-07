@@ -7,7 +7,7 @@ OBJ_DIR := ./bin
 EXECUTABLE := $(OBJ_DIR)/$(shell echo $(PROJECT_NAME) | tr A-Z a-z)
 
 CC := gcc
-LIBS := -lcrypto
+LIBS :=
 CFLAGS := -g -Wall -Wextra -I$(INC_DIR)
 
 SRC_FILES := $(shell find $(SRC_DIR) -type f -name '*.c')
