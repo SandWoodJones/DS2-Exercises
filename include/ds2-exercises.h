@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "list-1.h"
+#define MAX_STRING_SIZE 25
+
+extern char * read_string(void);
 
 #endif

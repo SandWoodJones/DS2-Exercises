@@ -1,10 +1,10 @@
-#include "list-1.h"
+#include "pointers-dynAlloc.h"
 
 /* Problem 3 - Write a function that reads N integers from stdinput, stores them in an array, and writes them to stdout in the reverse order:
  *  Input:                  Output:
  *      v1 = {10, 20, 30}       v1 = {30, 10, 20 */
 
-void print_reverse(int N) {
+void print_reverse (int N) {
     int *arr = (int *) malloc(sizeof(int) * N);
     if (!arr) {
         fprintf(stderr, "Memory allocation failed\n");

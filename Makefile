@@ -4,7 +4,7 @@ PROJECT_NAME := DS2-Exercises
 INC_DIR := ./include
 SRC_DIR := ./src
 OBJ_DIR := ./bin
-EXECUTABLE := $(OBJ_DIR)/$(shell echo $(PROJECT_NAME) | tr A-Z a-z)
+EXECUTABLE := ./$(shell echo $(PROJECT_NAME) | tr A-Z a-z)
 
 CC := gcc
 LIBS :=
@@ -16,7 +16,9 @@ OBJ_FILES := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
 DEP_FILES := $(wildcard $(INC_DIR)/*.h)
 
-.PHONY: clean run
+.PHONY: clean
+
+all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJ_FILES)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
@@ -27,15 +29,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEP_FILES) | $(OBJ_DIR)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
-	rm -f $(OBJ_DIR)/*.o $(OBJ_DIR)/$(PROJECT_NAME)
+	rm -f $(OBJ_DIR)/*.o $(OBJ_DIR)/$(PROJECT_NAME) $(EXECUTABLE)
 	rm -rf $(OBJ_DIR)
-
-run:
-	@make -s $(EXECUTABLE) # calls make silently, which will execute the first rule, compiling the project.
-	$(EXECUTABLE)
-
-debug: $(EXECUTABLE)
-	gdb $(EXECUTABLE)
 
 # creates the bin directory and its subdirectories if they dont exist
 $(OBJ_DIR):
