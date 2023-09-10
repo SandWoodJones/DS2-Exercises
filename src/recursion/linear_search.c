@@ -1,6 +1,6 @@
 #include "recursion.h"
 
-// Given an unordered array, write a recursive function that, returns an index to a given element if it is present in the array, or -1 if it is not.
+// Problem 4 - Given an unordered array, write a recursive function that, returns an index to a given element if it is present in the array, or -1 if it is not.
 
 int linear_search (int *V, int X, unsigned int H, unsigned int T) {
     if (!V) {

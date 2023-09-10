@@ -8,13 +8,16 @@ enum Problems {
     SUM_INTERVAL,
     FACTORIAL,
     EXPONENTIATION,
-    LINEAR_SEARCH
+    LINEAR_SEARCH,
+    INVERT_ARRAY
 };
 
 int main () {
-    enum Problems selected = LINEAR_SEARCH;
+    enum Problems selected = INVERT_ARRAY;
     int A, B;
     unsigned int C;
+
+    int X[] = {1, 10, 8, 3, 7, 2, 9, 4, 5, 6};
 
     switch(selected) {
         case PRINT_REVERSE:
@@ -29,10 +32,9 @@ int main () {
             break;
 
         case ARRAY_UNION:
-            int X[] = {1, 2, 3, 4};
-            int Y[] = {5, 6, 7};
+            int Y[] = {11, 0, 12};
 
-            int *R = array_union(X, 4, Y, 3, &C);
+            int *R = array_union(X, 10, Y, 3, &C);
 
             for (unsigned int i = 0; i < C; i++) printf("%d ", R[i]);
             printf("\n");
@@ -56,8 +58,13 @@ int main () {
             break;
 
         case LINEAR_SEARCH:
-            int Z[] = {1, 10, 8, 3, 7, 2, 9, 4, 5, 6};
-            printf("%d\n", linear_search(Z, 11, 0, 9));
+            printf("%d\n", linear_search(X, 11, 0, 9));
+            break;
+
+        case INVERT_ARRAY:
+            invert_array(X, 0, 9);
+
+            for (unsigned int i = 0; i < 10; i++) printf("%d ", X[i]);
             break;
     }
 }

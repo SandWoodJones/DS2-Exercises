@@ -11,4 +11,6 @@ unsigned int exponentiation (int, unsigned int);
 
 int linear_search (int *, int, unsigned int, unsigned int);
 
+void invert_array (int *, unsigned int, unsigned int);
+
 #endif
