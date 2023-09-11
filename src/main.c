@@ -2,69 +2,83 @@
 #include "recursion.h"
 
 enum Problems {
-    PRINT_REVERSE,
-    SIZE_OF_STRING,
-    ARRAY_UNION,
-    SUM_INTERVAL,
-    FACTORIAL,
-    EXPONENTIATION,
-    LINEAR_SEARCH,
-    INVERT_ARRAY
+	PRINT_REVERSE,
+	SIZE_OF_STRING,
+	ARRAY_UNION,
+
+	SUM_INTERVAL,
+	FACTORIAL,
+	EXPONENTIATION,
+	LINEAR_SEARCH,
+	INVERT_ARRAY,
+	IS_PALINDROME
 };
 
 int main () {
-    enum Problems selected = INVERT_ARRAY;
-    int A, B;
-    unsigned int C;
+	enum Problems selected = IS_PALINDROME;
+	int A, B;
+	unsigned int C;
 
-    int X[] = {1, 10, 8, 3, 7, 2, 9, 4, 5, 6};
+	char *S;
 
-    switch(selected) {
-        case PRINT_REVERSE:
-            while(!scanf("%d", &A));
-            print_reverse(A);
-            break;
+	int X[] = {1, 10, 8, 3, 7, 2, 9, 4, 5, 6};
 
-        case SIZE_OF_STRING:
-            char *S = read_string();
-            printf("%u", size_of_string(S));
-            free(S);
-            break;
+	switch(selected) {
+		case PRINT_REVERSE:
+			while(!scanf("%d", &A));
+			print_reverse(A);
+			break;
 
-        case ARRAY_UNION:
-            int Y[] = {11, 0, 12};
+		case SIZE_OF_STRING:
+			S = read_string();
+			printf("%u", size_of_string(S));
+			free(S);
+			break;
 
-            int *R = array_union(X, 10, Y, 3, &C);
+		case ARRAY_UNION:
+			int Y[] = {11, 0, 12};
 
-            for (unsigned int i = 0; i < C; i++) printf("%d ", R[i]);
-            printf("\n");
-            
-            free(R);
-            break;
+			int *R = array_union(X, 10, Y, 3, &C);
 
-        case SUM_INTERVAL:
-            while(!scanf("%d%d", &A, &B));
-            printf("%d\n", sum_interval(A, B));
-            break;
+			for (unsigned int i = 0; i < C; i++) printf("%d ", R[i]);
+			printf("\n");
+			
+			free(R);
+			break;
 
-        case FACTORIAL:
-            while(!scanf("%d", &A));
-            printf("%d\n", factorial(A));
-            break;
+		case SUM_INTERVAL:
+			while(!scanf("%d%d", &A, &B));
+			printf("%d\n", sum_interval(A, B));
+			break;
 
-        case EXPONENTIATION:
-            while(!scanf("%d%u", &A, &C));
-            printf("%d\n", exponentiation(A, C));
-            break;
+		case FACTORIAL:
+			while(!scanf("%d", &A));
+			printf("%d\n", factorial(A));
+			break;
 
-        case LINEAR_SEARCH:
-            printf("%d\n", linear_search(X, 11, 0, 9));
-            break;
+		case EXPONENTIATION:
+			while(!scanf("%d%u", &A, &C));
+			printf("%d\n", exponentiation(A, C));
+			break;
 
-        case INVERT_ARRAY:
-            invert_array(X, 0, 9);
+		case LINEAR_SEARCH:
+			printf("%d\n", linear_search(X, 11, 0, 9));
+			break;
 
-            for (unsigned int i = 0; i < 10; i++) printf("%d ", X[i]);
-            break;
-    }
+		case INVERT_ARRAY:
+			invert_array(X, 0, 9);
+
+			for (unsigned int i = 0; i < 10; i++) printf("%d ", X[i]);
+			break;
+
+		case IS_PALINDROME:
+			S = read_string();
+			C = size_of_string(S);
+			lower_string(S, 0, C);
+
+			is_palindrome(S, 0, C - 1) ? printf("IS PALINDROME\n") : printf("NOT PALINDROME\n");
+
+			free(S);
+			break;
+	}
 }
