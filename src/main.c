@@ -11,17 +11,18 @@ enum Problems {
 	EXPONENTIATION,
 	LINEAR_SEARCH,
 	INVERT_ARRAY,
-	IS_PALINDROME
+	IS_PALINDROME,
+	FIND_SMALLEST
 };
 
 int main () {
-	enum Problems selected = IS_PALINDROME;
+	enum Problems selected = FIND_SMALLEST;
 	int A, B;
 	unsigned int C;
 
 	char *S;
 
-	int X[] = {1, 10, 8, 3, 7, 2, 9, 4, 5, 6};
+	int X[] = {54, 12, 45, 6, 78, 45, 6, 67};
 
 	switch(selected) {
 		case PRINT_REVERSE:
@@ -38,7 +39,7 @@ int main () {
 		case ARRAY_UNION:
 			int Y[] = {11, 0, 12};
 
-			int *R = array_union(X, 10, Y, 3, &C);
+			int *R = array_union(X, 8, Y, 3, &C);
 
 			for (unsigned int i = 0; i < C; i++) printf("%d ", R[i]);
 			printf("\n");
@@ -62,13 +63,13 @@ int main () {
 			break;
 
 		case LINEAR_SEARCH:
-			printf("%d\n", linear_search(X, 11, 0, 9));
+			printf("%d\n", linear_search(X, 6, 0, 7));
 			break;
 
 		case INVERT_ARRAY:
-			invert_array(X, 0, 9);
+			invert_array(X, 0, 7);
 
-			for (unsigned int i = 0; i < 10; i++) printf("%d ", X[i]);
+			for (unsigned int i = 0; i < 8; i++) printf("%d ", X[i]);
 			break;
 
 		case IS_PALINDROME:
@@ -80,5 +81,9 @@ int main () {
 
 			free(S);
 			break;
+
+		case FIND_SMALLEST:
+			C = find_smallest(X, 0, 7);
+			printf("%u:%d\n", C, X[C]);
 	}
 }

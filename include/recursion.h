@@ -17,4 +17,6 @@ void invert_array (int *, unsigned int, unsigned int);
 
 bool is_palindrome (char *, int, int);
 
+unsigned int find_smallest (int *, unsigned int, unsigned int);
+
 #endif
