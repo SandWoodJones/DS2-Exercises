@@ -8,7 +8,7 @@
 *		(d) Print a student's grade
 *		(e) Print a student's AR */
 
-void student_register (void) {
+DynArr * student_register (void) {
 	unsigned int AR;
 	float grade;
 
@@ -31,5 +31,5 @@ void student_register (void) {
 		addStudent(&arr, std);
 	}
 	
-	printDynArr(arr);
+	return arr;
 }

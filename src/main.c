@@ -1,9 +1,16 @@
 #include "pointers-dynAlloc.h"
 #include "recursion.h"
 #include "adt.h"
+#include "search.h"
 
 int main () {
-	student_register();
+	srand(1);
 
-	return 0;
+	unsigned int *arr = createRandomArray();
+
+	int index = rc_binarySearch(arr, 0, 999, 3909);
+
+	printf("%u: %d\n", index, arr[index]);
+
+	free(arr);
 }

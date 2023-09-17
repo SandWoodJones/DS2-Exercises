@@ -27,6 +27,6 @@ void addStudent (DynArr **, Student *); // (a)
 Student * searchStudent (DynArr *, unsigned int); // (b)
 void printDynArr (DynArr *); // (c)
 
-void student_register (void);
+DynArr * student_register (void);
 
 #endif

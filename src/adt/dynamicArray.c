@@ -26,6 +26,20 @@ void addStudent (DynArr **DA, Student *std) {
 	(*DA)->students = realloc((*DA)->students, sizeof(Student) * (*DA)->capacity);
 }
 
+Student * searchStudent (DynArr *DA, unsigned int AR) {
+	if (!DA || AR == 0) return NULL;
+
+	Student *cur;
+
+	for (unsigned int i = 0; i < DA->i; i++) {
+		cur = (DA->students + i);
+
+		if (getAR(cur) == AR) return cur;
+	}
+
+	return NULL;
+}
+
 void printDynArr (DynArr *DA) {
 	Student *cur;
 
